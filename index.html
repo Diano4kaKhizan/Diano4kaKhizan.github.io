@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-wrapper">
+            <div class="logo">Киноеда</div>
+            <div class="menu">
+                <div class="menu-hamburger">
+                    <div class="menu-hamburger__button"></div>
+                    <div class="toggler">
+                        <div class="toggler-link">
+                            <a href="#">
+                                новости
+                            </a>
+                        </div>
+                        <div class="toggler-link">
+                            <a href="#">
+                                еда
+                            </a>
+                        </div>
+                        <div class="toggler-link">
+                            <a href="#">
+                                фильмы
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-link">
+                    <a href="#">
+                        новости
+                    </a>
+                </div>
+                <div class="menu-link">
+                    <a href="#">
+                        еда
+                    </a>
+                </div>
+                <div class="menu-link">
+                    <a href="#">
+                        фильмы
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header-wrapper">
+            <div class="herobox">
+                <div class="herobox-text">
+                    <h1>Добро пожаловать Киноеда</h1>
+                </div>
+                <div class="herobox-button">
+                    <button>
+                        Узнать больше
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="movie-food-section">
+        <div class="movie-food-section-wrapper">
+            <div class="card">
+
+                <a href="titanic.html" class="text">Titanic 1997</a>
+            </div>
+            <div class="card">
+
+                <a href="titanic.html" class="text">Titanic 1997</a>
+            </div>
+            <div class="card">
+
+                <a href="titanic.html" class="text">Titanic 1997</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // navbar toggle
+        const navButton = document.querySelector('.menu-hamburger');
+
+        navButton.addEventListener('click', navEvent);
+
+        function navEvent(event) {
+            navButton.classList.toggle('open');
+        }
+
+        var elem = document.querySelector('.movie-food-section-wrapper');
+        var flickity = new Flickity(elem, {
+            wrapAround: true,
+        });
+    </script>
+</body>
+</html>

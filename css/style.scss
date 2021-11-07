@@ -1,0 +1,239 @@
+@import './reset';
+@import './colors';
+@import './breakpoints';
+
+.navbar-wrapper, .header-wrapper, .movie-food-section-wrapper {
+    max-width: 1360px;
+    margin: auto;
+}
+
+.navbar {
+    background-color: $primary;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    &-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        background-color: $primary;
+
+        .logo {
+            font-family: 'Montserrat Alternates', sans-serif;
+            font-size: 28px;
+            padding: 33px 0;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+
+            &-link {
+                @include media('<=tablet') {
+                    display: none;
+                }
+                a {
+                    font-family: 'Montserrat Alternates', sans-serif;
+                    font-size: 24px;
+                    color: black;
+                    text-decoration: none;
+                }
+            }
+            .menu-hamburger {
+                .toggler {
+                    background-color: $primary;
+                    top: -140px;
+                    left: 0;
+                    z-index: -1;
+                    position: absolute; 
+                    visibility: hidden;
+                    width: 100%;
+                    transition: all ease .5s;  
+                    z-index: -1;
+
+                    &-link {
+                        width: 100%;
+                        &:hover {
+                            background-color: $secondary;
+                            transition: color ease .25s;
+                            a {
+                                color: #000;
+                            }
+                        }
+                        a {
+                            font-family: 'Montserrat Alternates', sans-serif;
+                            display: inline-block;
+                            padding: 15px;
+                            color: #fff;
+                            width: 100%;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            @include media('<=tablet') {
+                .menu-hamburger {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+
+                    &__button {
+                        width: 30px;
+                        height: 3px;
+                        background-color: #fff;
+                        transition: all ease .5s;
+
+                        &::before, &::after {
+                            content: '';
+                            position: absolute;
+                            width: 30px;
+                            height: 3px;
+                            background-color: #fff;
+                            transition: all ease .5s;
+
+                        }
+
+                        &::before {
+                            transform: translateY(-9px);
+                        }
+                        &::after {
+                            transform: translateY(9px);
+                        }
+                    }
+
+                    &.open {
+                        .menu-hamburger__button {
+                            transform: translateX(-35px);
+                            background: transparent;
+                        }
+                        .menu-hamburger__button::before {
+                            transform: rotate(45deg) translate(25px, -25px);
+                        }
+                        .menu-hamburger__button::after {
+                            transform: rotate(-45deg) translate(25px, 25px);
+                        }
+                        .toggler {
+                            top: 90px;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header {
+    height: 100vh; 
+    background-image: url(../img/header.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #C4C4C419;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    &-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 1;
+        
+        .herobox {
+            &-text {
+                font-size: 58px;
+                font-weight: bold;
+                width: 17ch;
+                line-height: 71px;
+                font-family: 'Montserrat Alternates', sans-serif;
+                position: relative;
+                margin-bottom: 45px;
+                
+                &::before {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 10px;
+                    border-radius: 15px;
+                    background-color: $alternative;
+                    left: -14px;
+                    top: 0;
+                }
+            }
+            &-button {
+                float: right;
+
+                button {
+                    font-size: 33px;
+                    font-weight: 700;
+                    font-family: 'Montserrat Alternates', sans-serif;
+                    background-color: $secondary;
+                    padding: 31px 44px;
+                    border-radius: 15px;
+                    border: 0;
+                    box-shadow: -10px 10px 0 0 $alternative;
+                    transition: all ease .15s;
+                    &:hover {
+                        box-shadow: 0 0 0 0 $alternative;
+                        transform: translate(-10px, 10px);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.movie-food-section {
+    .movie-food-section-wrapper {
+        height: 100vh;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .card {
+            border-radius: 15px;
+            background-color: $primary;
+            background-image: url(../img/titanic.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            width: 200px;
+            margin-right: 50px;
+            .text {
+                font-family: 'Montserrat Alternates', sans-serif;
+                background-color: $primary;
+                padding: 10px;
+                white-space: nowrap;
+                font-size: 16px;
+                color: $white;
+                text-decoration: none;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                position: relative;
+                top: 25px;
+            }
+        }
+    }
+}
+.flickity-viewport {
+    width: 100%;
+}
